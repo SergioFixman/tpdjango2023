@@ -1,0 +1,21 @@
+{% extends 'publica\base_plantas.html' %}
+{% block titulo %}Nueva planta{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Plantas</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administracion</a></li>
+    <li class="breadcrumb-item active">Nueva Planta</li>
+</ol>
+
+
+<div class="card">
+    <div class="card-header">Creacion de plantas</div>
+    <div class="card-body">
+        <form action="{% url 'nuevo' %}" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'publica/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}
